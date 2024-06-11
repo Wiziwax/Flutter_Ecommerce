@@ -24,6 +24,7 @@ class HomeScreen extends StatelessWidget {
                   ///Appbar -- Tutorial [Section #3, Video #3]
                   THomeAppBar()
 
+
                   /// -- Searchbar -- Tutorial [Section #3, Video #4]
 
                   /// -- Categories -- Tutorial [Section #3, Video #4]
