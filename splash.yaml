@@ -1,0 +1,21 @@
+flutter_native_splash:
+  color: "#FFFFFF"
+  color_dark: "#272727"
+  image: assets/logos/chestnut.png
+  image_dark: assets/logos/chestnut.png
+  fill: true
+
+
+  android_12:
+    color: "#FFFFFF"
+    color_dark: "#272727"
+    image: assets/logos/chestnut.png
+    image_dark: assets/logos/chestnut.png
+    fill: true
+
+
+  web: false
+
+
+#  flutter pub run flutter_native_splash:create
+#  flutter pub run flutter_native_splash:remove
