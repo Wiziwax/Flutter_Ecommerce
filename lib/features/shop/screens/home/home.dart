@@ -1,11 +1,15 @@
 import 'package:ecommerce_mark1/features/shop/screens/home/widgets/home_appbar.dart';
-import 'package:ecommerce_mark1/utils/helpers/helper_functions.dart';
+import 'package:ecommerce_mark1/features/shop/screens/home/widgets/home_categories.dart';
+import 'package:ecommerce_mark1/features/shop/screens/home/widgets/promo_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
+
+import '../../../../category.dart';
 import '../../../../common/widgets/custom_shapes/containers/primary_header_container.dart';
 import '../../../../common/widgets/custom_shapes/containers/search_container.dart';
+import '../../../../common/widgets/layouts/grid_layout.dart';
+import '../../../../common/widgets/products/product_cards/product_card_vertical.dart';
 import '../../../../common/widgets/texts/section_heading.dart';
-import '../../../../utils/constants/colors.dart';
 import '../../../../utils/constants/image_strings.dart';
 import '../../../../utils/constants/sizes.dart';
 
@@ -14,6 +18,24 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final categories = [
+      Category(imagePath: TImages.shoeIcon, title: 'Shoes', onTap: () {}),
+      Category(imagePath: TImages.clothing, title: 'Clothing', onTap: () {}),
+      Category(
+          imagePath: TImages.cosmeticIcon, title: 'Cosmetics', onTap: () {}),
+      Category(
+          imagePath: TImages.jeweleryIcon, title: 'Jewelery', onTap: () {}),
+      Category(imagePath: TImages.sportIcon, title: 'Sports', onTap: () {}),
+      Category(
+          imagePath: TImages.electronicsIcon,
+          title: 'Electronics',
+          onTap: () {}),
+      Category(
+          imagePath: TImages.trueFurniture, title: 'Furniture', onTap: () {}),
+      Category(imagePath: TImages.toyIcon, title: 'Toys', onTap: () {}),
+      // Add more categories as needed
+    ];
+
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -24,97 +46,58 @@ class HomeScreen extends StatelessWidget {
                 children: [
                   ///Appbar -- Tutorial [Section #3, Video #3]
                   const THomeAppBar(),
-                  const SizedBox(height: TSizes.spaceBtwSections,),
-                  /// -- Searchbar -- Tutorial [Section #3, Video #4]
 
+                  /// -- Searchbar -- Tutorial [Section #3, Video #4]
+                  const SizedBox(height: TSizes.spaceBtwItems),
+                  const TSearchContainer(
+                      text: 'Search in Store', icon: Iconsax.search_normal),
                   const SizedBox(height: TSizes.spaceBtwSections),
-                  const TSearchContainer(text: 'Search in Store', icon: Iconsax.search_normal),
-                  const SizedBox(height: TSizes.spaceBtwSections),
+
                   /// -- Categories -- Tutorial [Section #3, Video #4]
-                  
-                  Padding(padding: const EdgeInsets.only(left: TSizes.defaultSpace),
+                  Padding(
+                    padding: const EdgeInsets.only(left: TSizes.defaultSpace),
                     child: Column(
                       children: [
-                        const TSectionHeading(title: 'Popular Categories', showActionButton: false, textColor: Colors.white,),
+                        const TSectionHeading(
+                          title: 'Popular Categories',
+                          showActionButton: false,
+                          textColor: Colors.white,
+                        ),
 
                         const SizedBox(height: TSizes.spaceBtwItems),
 
                         ///Categories
-                        SizedBox(
-                          height: 80,
-                          child: ListView.builder(
-                            shrinkWrap: true,
-                            itemCount: 6,
-                              scrollDirection: Axis.horizontal,
-                              itemBuilder: (_, index){
-                              return TVerticalImageText(image: TImages.shoeIcon, title: 'Shoes', onTap: (){},);
-                              }
-                          ),
-                        ),
+                        THomeCategories(categories: categories),
                       ],
                     ),
                   )
                 ],
               ),
-            )
-          ],
-        ),
-      ),
-    );
-  }
-}
+            ),
 
-class TVerticalImageText extends StatelessWidget {
-  const TVerticalImageText({
-    super.key,
-    required this.image,
-    required this.title,
-    this.textColor = TColors.white,
-    this.backgroundColor,
-    this.onTap,
-  });
+            ///Body
+            Padding(
+                padding: const EdgeInsets.all(TSizes.defaultSpace),
+                child: Column(
+                  children: [
+                    ///Promo Slider
+                    const TPromoSlider(banners: [
+                      TImages.promoBanner1,
+                      TImages.promoBanner4,
+                      TImages.promoBanner6,
+                      TImages.promoBanner2
+                    ]),
+                    const SizedBox(height: TSizes.spaceBtwItems),
 
-  final String image, title;
-  final Color textColor;
-  final Color? backgroundColor;
-  final void Function()? onTap;
-
-
-  @override
-  Widget build(BuildContext context) {
-    final dark = THelperFunctions.isDarkMode(context);
-    return GestureDetector(
-      onTap: onTap,
-      child: Padding(
-        padding: const EdgeInsets.only(right: TSizes.spaceBtwItems),
-        child: Column(
-          children: [
-            ///Circular Icon
-            Container(
-              width: 56,
-              height: 56,
-              padding: const EdgeInsets.all(TSizes.sm),
-              decoration: BoxDecoration(
-                color: backgroundColor ?? (dark? TColors.black: TColors.white),
-                borderRadius: BorderRadius.circular(100)
-              ),
-              child: Center(
-                child: Image(image: AssetImage(image), fit: BoxFit.cover, color: dark ? TColors.light : TColors.dark)
-
-                ),
-              ),
-            const SizedBox(height: TSizes.spaceBtwItems / 2),
-            SizedBox(width: 55,
-                child: Text(
-                    title,
-                    style: Theme.of(context).textTheme.labelMedium!.apply(color: textColor),
-                    maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
+                    ///Popular Products
+                    TGridLayout(itemCount: 4, itemBuilder: (_, index) => const TProductCardVertical()),
+                    // TProductCardVertical()
+                  ],
                 ))
-
           ],
         ),
       ),
     );
   }
 }
+

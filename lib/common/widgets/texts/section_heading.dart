@@ -19,11 +19,13 @@ class TSectionHeading extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Text("Popular Categories",
+        Text(title,
           style: TextStyle(
             fontSize: 18,
-            fontWeight: FontWeight.w600
+            fontWeight: FontWeight.w600,
+            color: textColor
           ),
+
           // style: Theme.of(context).textTheme.headlineSmall!.apply(color: textColor),
           maxLines: 1,
           overflow: TextOverflow.ellipsis),
