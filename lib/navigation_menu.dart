@@ -1,9 +1,14 @@
+import 'package:ecommerce_mark1/features/personalization/screens/profile/profile.dart';
+import 'package:ecommerce_mark1/features/personalization/screens/settings/settings.dart';
 import 'package:ecommerce_mark1/features/shop/screens/home/home.dart';
+import 'package:ecommerce_mark1/features/shop/screens/wishlist/wishlist.dart';
 import 'package:ecommerce_mark1/utils/constants/colors.dart';
 import 'package:ecommerce_mark1/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
+
+import 'features/shop/screens/store/store.dart';
 
 class NavigationMenu extends StatelessWidget {
   const NavigationMenu({super.key});
@@ -42,9 +47,11 @@ class NavigationController extends GetxController{
 
   final screens = [
     const HomeScreen(),
-    Container(color: Colors.red),
-    Container(color: Colors.blue),
-    Container(color: Colors.purple)
+    const StoreScreen(),
+    const FavouriteScreen(),
+    const SettingsScreen(),
+
+    // const ProfileScreen()
   ];
 
 }

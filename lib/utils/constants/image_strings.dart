@@ -93,4 +93,7 @@ class TImages{
   static const String soccerUnTransparent = "assets/images/products/soccer_untransparent.png";
   static const String sportsWear = "assets/images/products/sports_wear_1.png";
   static const String sportsWear2 = "assets/images/products/sports_wear_2.png";
+  static const String user = "assets/icons/categories/png-clipuser.png";
+
+
 }

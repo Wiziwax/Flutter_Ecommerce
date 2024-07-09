@@ -23,11 +23,11 @@ class TGridLayout extends StatelessWidget {
         shrinkWrap: true,
         padding: EdgeInsets.zero,
         physics: const NeverScrollableScrollPhysics(), ///To prevent the grid from scrolling its children
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        gridDelegate:   SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
             mainAxisSpacing: TSizes.gridViewSpacing,
             crossAxisSpacing: TSizes.gridViewSpacing,
-            mainAxisExtent: 270
+            mainAxisExtent: mainAxisExtent
         ),
         itemBuilder: itemBuilder
     );

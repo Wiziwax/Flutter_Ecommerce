@@ -70,7 +70,9 @@ class HomeScreen extends StatelessWidget {
                         THomeCategories(categories: categories),
                       ],
                     ),
-                  )
+                  ),
+
+                  const SizedBox(height: TSizes.spaceBtwSections)
                 ],
               ),
             ),
@@ -89,9 +91,31 @@ class HomeScreen extends StatelessWidget {
                     ]),
                     const SizedBox(height: TSizes.spaceBtwItems),
 
+                    ///Heading
+                    TSectionHeading(
+                      title: 'Popular Products',
+                      onPressed: () {},
+                    ),
+                    const SizedBox(
+                      height: TSizes.spaceBtwItems,
+                    ),
+
                     ///Popular Products
-                    TGridLayout(itemCount: 4, itemBuilder: (_, index) => const TProductCardVertical()),
-                    // TProductCardVertical()
+                    TGridLayout(itemCount: 4, itemBuilder: (_, index) => const TProductCardVertical())
+                    // TGridLayout(
+                    //   itemCount: 4,
+                    //   itemBuilder: (_, index) {
+                    //     List<String> imageUrls = [
+                    //       TImages.cloth,
+                    //       TImages.cloth2,
+                    //       TImages.cloth3,
+                    //       TImages.cloth4,
+                    //     ];
+                    //
+                    //     return TProductCardVertical(imageUrl: imageUrls[index]);
+                    //   },
+                    // )
+                    // // TProductCardVertical()
                   ],
                 ))
           ],
@@ -100,4 +124,3 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
-
