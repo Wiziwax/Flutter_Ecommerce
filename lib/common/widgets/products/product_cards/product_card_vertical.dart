@@ -4,8 +4,10 @@ import 'package:ecommerce_mark1/common/widgets/texts/t_brand_title_text_with_ver
 import 'package:ecommerce_mark1/utils/constants/colors.dart';
 import 'package:ecommerce_mark1/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
+import '../../../../features/shop/screens/product_details/product_detail.dart';
 import '../../../../utils/constants/image_strings.dart';
 import '../../../../utils/constants/sizes.dart';
 import '../../../styles/shadow_style.dart';
@@ -25,7 +27,7 @@ class TProductCardVertical extends StatelessWidget {
   Widget build(BuildContext context) {
     final dark = THelperFunctions.isDarkMode(context);
     return GestureDetector(
-      onTap: () {},
+      onTap: () => Get.to(() => const ProductDetailScreen()),
       child: Container(
         padding: const EdgeInsets.all(1),
         decoration: BoxDecoration(

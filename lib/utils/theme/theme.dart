@@ -13,6 +13,8 @@ import 'package:flutter/material.dart';
 class TAppTheme {
   TAppTheme._();
 
+
+  /// Light Theme
   static ThemeData lightTheme = ThemeData(
       useMaterial3: true,
       fontFamily: 'Poppins',
@@ -30,6 +32,7 @@ class TAppTheme {
       inputDecorationTheme: TTextFormFieldTheme.lightInputDecorationTheme);
 
 
+  /// Dark Theme
   static ThemeData darkTheme = ThemeData(
     useMaterial3: true,
     fontFamily: 'Poppins',
