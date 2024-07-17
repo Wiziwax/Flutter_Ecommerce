@@ -29,6 +29,7 @@ class TProductCardVertical extends StatelessWidget {
     return GestureDetector(
       onTap: () => Get.to(() => const ProductDetailScreen()),
       child: Container(
+        width: 180,
         padding: const EdgeInsets.all(1),
         decoration: BoxDecoration(
             boxShadow: [TShadowStyle.verticalProductShadow],
